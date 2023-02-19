@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'welcome')
+@section('title', 'home')
 
 @section('body')
 
