@@ -16,7 +16,7 @@ class isUser
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check()){
-            return redirect()->back();
+            return redirect()->route('login-page');
         }
         return $next($request);
     }

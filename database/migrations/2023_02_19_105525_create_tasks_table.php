@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('task_name');
             $table->date('deadline');
+            $table->boolean('is_done')->default(0);
             $table->timestamps();
         });
     }

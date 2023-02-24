@@ -12,11 +12,14 @@ class Task extends Model
     protected $fillable = [
         'user_id',
         'task_name',
-        'deadline'
+        'deadline',
+        'is_done'
     ];
 
     public function user()
     {
         return $this->hasOne(User::class, 'user_id');
     }
+
+    
 }
