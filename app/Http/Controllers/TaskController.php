@@ -23,7 +23,8 @@ class TaskController extends Controller
 
         Task::create([
             'task_name' => $request->task_name,
-            'deadline' =>$request->deadline
+            'deadline' =>$request->deadline,
+            'user_id' => auth()->id()
         ]);
 
         return redirect()->back();

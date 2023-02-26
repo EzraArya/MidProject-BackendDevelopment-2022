@@ -1,30 +1,40 @@
-@extends('template')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'login')
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+</head>
 
-@section('body')
-
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter Username" name="username" value="{{ old('username') }}">
-            @error('username')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+<body>
+    <main>
+        <div class="card">
+            <div class="card-body">
+                <h1 id="title">LOGIN</h1>
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <input type="text" id="username" placeholder="Username" name="username"
+                        value="{{ old('username') }}">
+                    @error('username')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <input type="password" name="password" placeholder="Password" id="password">
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <input type="checkbox" name="remember" id="rememberme"><label for="rememberme"
+                        id="rememberme-text">Remember me</label>
+                    <button type="submit" id="login-button">LOGIN</button>
+                </form>
+                <hr>
+                <h2>Don't Have an Account?</h2>
+                <button id="register"><a href="{{ route('register-page') }}">REGISTER</a></button>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-            @error('password')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
-            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </main>
+</body>
 
-@endsection
+</html>

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #302151;
+}
+
+main {
+    display: flex;
+    background: #302151;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 584px;
+    height: 697px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+#title {
+    position: relative;
+    left: 37.15%;
+    right: 37.15%;
+    top: 4.48%;
+    bottom: 88.5%;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 58px;
+    color: #302151;
+}
+
+#username {
+    border: 5px solid;
+    border-radius: 100px;
+    border-color: #302151;
+    position: absolute;
+    left: 11.47%;
+    right: 11.47%;
+    top: 20.8%;
+    bottom: 70.59%;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: #302151;
+    padding-left: 20px;
+}
+
+#password {
+    position: absolute;
+    left: 11.47%;
+    right: 11.47%;
+    top: 36.44%;
+    bottom: 54.95%;
+    border: 5px solid;
+    border-radius: 100px;
+    border-color: #302151;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: #302151;
+    padding-left: 20px;
+}
+
+::placeholder {
+    align-items: center;
+    color: #302151;
+}
+
+#rememberme {
+    position: absolute;
+    left: 12.67%;
+    right: 79.79%;
+    top: 51.06%;
+    bottom: 43.64%;
+    background: #302151;
+}
+
+#rememberme-text {
+    position: absolute;
+    left: 22.09%;
+    right: 48.46%;
+    top: 52.04%;
+    bottom: 43.64%;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    color: #302151;
+}
+
+#login-button {
+    position: absolute;
+    left: 35.45%;
+    right: 35.45%;
+    top: 63.2%;
+    bottom: 27.04%;
+    font-family: 'Inter';
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    background: #302151;
+    border: 300px;
+    border-radius: 100px;
+}
+
+#login-button:hover,
+#register:hover {
+    background: #302151d2;
+    transition-duration: 0.2s
+}
+
+hr {
+    position: absolute;
+    left: 3.25%;
+    right: 3.25%;
+    top: 78.91%;
+    bottom: 19.94%;
+    background: #302151;
+}
+
+h2 {
+    position: absolute;
+    left: 12.33%;
+    right: 43.32%;
+    top: 87.09%;
+    bottom: 8.59%;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    color: #302151;
+}
+
+#register {
+    position: absolute;
+    left: 56.68%;
+    right: 14.21%;
+    top: 84.07%;
+    bottom: 6.16%;
+    background: #302151;
+    border-radius: 100px;
+}
+
+a {
+    font-family: 'Inter';
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-decoration: none;
+}

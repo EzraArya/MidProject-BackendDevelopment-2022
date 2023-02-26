@@ -24,15 +24,6 @@ class UserController extends Controller
             'password' => 'required|min:8|max:20'
         ]);
 
-        $validated = $request->validate($validateRule, [
-            'username.required' => 'Username is required',
-            'username.min:3' => 'Username must have a minimum length of 3 characters',
-            'username.max:15' => 'Username must have a maximum length of 15 characters',
-            'password.required' => 'Password is required',
-            'password.min:8' => 'Password must have a minimum length of 8 characters',
-            'password.max:20' => 'Password must have a maximum length of 20 characters'
-        ]);
-
         $remember = $request->remember;
 
         if (Auth::attempt($credentials)) {
@@ -40,7 +31,7 @@ class UserController extends Controller
                 Cookie::queue('last_username', $request->username, 10080);
                 Session::put('loginsession', $credentials);
             }
-            return redirect()->back();
+            return redirect()->route('home');
         }
         return 'Login Failed';
     }
@@ -69,7 +60,7 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->back();
+        return redirect()->route('home');
         
     }
 }

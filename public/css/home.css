@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #302151;
+}
+
+nav {
+    background: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 58px;
+    color: #302151;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#logout-button {
+    width: 120px;
+    height: 50px;
+    background: #381b77;
+    border-radius: 100px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#logout-button:hover {
+    background: #381b77de;
+    transition-duration: 0.2s;
+}
+
+a {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 29px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-1 {
+    width: 463px;
+    height: 486px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#enter-task {
+    padding-bottom: 52px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 58px;
+    color: #302151;
+}
+
+#task_name {
+    width: 354px;
+    height: 50px;
+    padding-left: 20px;
+    border: 5px solid;
+    border-color: #302151;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: #302151;
+    background: #FFFFFF;
+    border-radius: 100px;
+}
+
+#deadline {
+    width: 354px;
+    height: 50px;
+    padding-left: 20px;
+    border: 5px solid;
+    border-color: #302151;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: #302151;
+    background: #FFFFFF;
+    border-radius: 100px;
+}
+
+.button {
+    padding-left: 100px;
+}
+
+#submit-task {
+    width: 170px;
+    height: 70px;
+    background: #302151;
+    border-radius: 100px;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+#submit-task:hover {
+    background: #302151e0;
+    transition-duration: 0.2s;
+}
+
+.card-2 {
+    width: 908px;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 30px;
+    border: 5px solid;
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+#to-do-title {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+    padding-left: 346px;
+    padding-top: 18px;
+    padding-bottom: 13px;
+}
+
+#task-list {
+    display: inline-block;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    padding-left: 52px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li {
+    list-style: circle;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    padding-right: 30px;
+    flex-wrap: wrap;
+}
+
+#done-button {
+    width: 75px;
+    height: 30px;
+    border-radius: 100px;
+    background: #472C82;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#done-button:hover {
+    background: #472c82cc;
+    transition-duration: 0.2s;
+}
+
+#delete-button:hover {
+    background: #7e208dd5;
+    transition-duration: 0.2s;
+}
+
+#revert-button:hover {
+    background: #6037b9d2;
+    transition-duration: 0.2s;
+}
+
+#done-button-text,
+#delete-button-text,
+#revert-button-text {
+    font-size: 15px;
+}
+
+#delete-button {
+    width: 75px;
+    height: 30px;
+    border-radius: 100px;
+    background: #7E208D;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.card-3 {
+    width: 908px;
+    height: fit-content;
+    background: #FFFFFF;
+    border-radius: 30px;
+    border: 5px solid;
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+#complete-title {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+    padding-left: 297.5px;
+    padding-top: 18px;
+    padding-bottom: 13px;
+}
+
+#revert-button {
+    width: 75px;
+    height: 30px;
+    border-radius: 100px;
+    background: #6137B9;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#complete-text {
+    text-decoration: line-through;
+}

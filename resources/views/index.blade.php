@@ -1,50 +1,91 @@
-@extends('template')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'home')
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+</head>
 
-@section('body')
-
-    <h1>Hello, {{ Auth::user()->name }}</h1>
-
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Task Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Task Name" name="task_name">
+<body>
+    <nav>
+        <h1 id="nav-user">Hello, {{ Auth::user()->name }}</h1>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            @method('post')
+            <button id="logout-button">LOG OUT</button>
+        </form>
+    </nav>
+    <br><br>
+    <main>
+        <div class="card-1">
+            <h1 id="enter-task">Enter Task</h1>
+            <form action="{{ route('new_task') }}" id="form-task" method="POST">
+                @csrf
+                <input type="text" name="task_name" id="task_name" placeholder="Task Name">
+                <br><br>
+                <input type="date" name="deadline" id="deadline">
+                <br><br><br>
+                <div class="button">
+                    <button type="submit" id="submit-task">SUBMIT</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Deadline</label>
-            <input type="date" class="form-control" id="exampleInputPassword1" name="deadline">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <br>
-    <br>
-    @if ($tasks)
-    @endif
-    @foreach ($tasks as $task)
-        <h1>Task</h1>
-        <ul class="list-group list-group-flush">
-            @if ($task->is_done == 0)
-                <li class="list-group-item">{{ $task->task_name }} - {{ $task->deadline }} <button type="button"
-                        class="btn btn-outline-primary">Done</button> <button type="button"
-                        class="btn btn-outline-danger">Delete</button></li>
-            @endif
-            @empty
-                No Task Found
-            </ul>
-
-            <br>
-            <h1>Completed Task</h1>
-            <ul class="list-group list-group-flush">
-                @if ($task->is_done == 1)
-                    <li class="list-group-item" style="text-decoration: line-through;">{{ $task->task_name }} -
-                        {{ $task->deadline }}<button type="button" class="btn btn-outline-primary">Restore</button></li>
-                @endif
-                @empty
-                    No Task Found
+        <div class="to-do">
+            <div class="card-2">
+                <h1 id="to-do-title">Task To Do!</h1>
+                <ul id="task-list">
+                    @foreach ($tasks as $task)
+                        @if ($task->is_done == 0)
+                            @if ($task->user_id == auth()->id())
+                                <li>{{ $task->task_name }} - {{ $task->deadline }}
+                                    <div class="button-list">
+                                        <form action="/task-done/{{ $task->id }}" method="POST">
+                                            @csrf
+                                            @method('patch')
+                                            <button type="submit" id="done-button">DONE</button>
+                                        </form>
+                                        <form action="/delete-task/{{ $task->id }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" id="delete-button">DELETE</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endif
+                        @endif
+                    @endforeach
                 </ul>
-            @endforeach
+                <br>
+            </div>
+            <br><br>
+            <div class="card-3">
+                <h1 id="complete-title">Completed Task</h1>
+                <ul id="task-list">
+                    @foreach ($tasks as $task)
+                        @if ($task->is_done == 1)
+                            @if ($task->user_id == auth()->id())
+                                <li id="complete-text">{{ $task->task_name }} -
+                                    {{ $task->deadline }}
+                                    <form action="/task-restore/{{ $task->id }}" method="POST">
+                                        @csrf
+                                        @method('patch')
+                                        <button type="submit" id="revert-button">REVERT</button>
+                                    </form>
+                                </li>
+                            @endif
+                        @endif
+                    @endforeach
 
-        @endsection
+                </ul>
+                <br>
+            </div>
+        </div>
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>
