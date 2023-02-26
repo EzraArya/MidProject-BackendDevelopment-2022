@@ -46,7 +46,7 @@ class UserController extends Controller
     {
         $validateRule = $request->validate([
             'name'=>'required|min:1|max:20',
-            'username'=>'required|min:3|max:15',
+            'username'=>'required|min:3|max:15|unique:users',
             'password'=>'required|min:8|max:20|confirmed'
         ]);
 
