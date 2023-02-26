@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    @if ($error = $errors->first('password'))
+        <div class="alert alert-danger">
+            {{ $error }}
+        </div>
+    @endif
     <main>
         <div class="card">
             <div class="card-body">

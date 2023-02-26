@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\MessageBag;
+use Symfony\Component\Console\Input\Input;
 
 class UserController extends Controller
 {
@@ -25,6 +28,7 @@ class UserController extends Controller
         ]);
 
         $remember = $request->remember;
+        $errors = new MessageBag;
 
         if (Auth::attempt($credentials)) {
             if ($remember){
@@ -33,7 +37,8 @@ class UserController extends Controller
             }
             return redirect()->route('home');
         }
-        return 'Login Failed';
+        $errors = new MessageBag(['password' => ['Email and/or password invalid.']]);
+        return Redirect::back()->withErrors($errors);
     }
 
     public function logout()
